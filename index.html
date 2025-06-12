@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veo 3 Prompt Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="main-title">Veo 3 Prompt Generator</h1>
+        <div class="form-container">
+            <div class="form-column">
+                <label for="judulScene">1. Judul Scene</label>
+                <input type="text" id="judulScene" placeholder="Contoh: Suasana area pusat kuliner Jakarta">
+
+                <label for="deskripsiKarakter">2. Deskripsi Karakter Inti</label>
+                <textarea id="deskripsiKarakter" rows="6" placeholder="Contoh: Seorang vlogger wanita muda asal Jawa berusia 27 tahun.&#10;Perawakan/Bentuk Tubuh: tubuh langsing, tinggi 170 cm, bentuk badan proporsional.&#10;Warna kulit: sawo matang cerah.&#10;Rambut: ikal sebahu, hitam kecokelatan, diikat setengah ke belakang.&#10;Wajah: wajah oval, alis tebal alami, hidung mancung, mata hitam besar, senyum ramah, pipi merona, bibir natural dengan sentuhan lip tint.&#10;Pakaian: mengenakan t-shirt berkerah warna abu-abu dan jeans biru"></textarea>
+
+                <label for="suaraKarakter">3. Detail Suara Karakter</label>
+                <textarea id="suaraKarakter" rows="6" placeholder="Contoh: Dia berbicara dengan suara wanita muda yang hangat dan penuh semangat.&#10;Nada: mezzo-soprano.&#10;Timbre: bersahabat dan enerjik.&#10;Aksen/Logat: logat Indonesia dengan sentuhan khas logat Jawa, berbicara murni dalam Bahasa Indonesia.&#10;Cara Berbicara: tempo sedang, gaya bicara lincah dan ekspresif.&#10;PENTING: Seluruh dialog harus dalam Bahasa Indonesia dengan pengucapan natural dan jelas. Pastikan suara karakter ini konsisten di seluruh video."></textarea>
+
+                <label for="aksiKarakter">4. Aksi Karakter</label>
+                <input type="text" id="aksiKarakter" placeholder="Contoh: Berjalan di sekitar pusat kuliner sambil melihat-lihat aktivitas konsumen dan pedagang.">
+
+                <label for="ekspresiKarakter">5. Ekspresi Karakter</label>
+                <input type="text" id="ekspresiKarakter" placeholder="Contoh: Karakter menunjukkan ekspresi kagum dan antusias, sering tersenyum sambil melirik kamera.">
+
+                <label for="latarTempatWaktu">6. Latar Tempat & Waktu</label>
+                <textarea id="latarTempatWaktu" rows="3" placeholder="Contoh: Latar tempat: di area parkir mall di sore hari...&#10;Waktu: sore hari, cuaca cerah."></textarea>
+            </div>
+            <div class="form-column">
+                <label for="detailVisual">7. Detail Visual Tambahan</label>
+                <textarea id="detailVisual" rows="4" placeholder="Contoh: Pencahayaan: natural dari lampu jalan...&#10;Gaya Video/Art Style: cinematic realistis.&#10;Kualitas Visual: Resolusi 4K."></textarea>
+
+                <label for="gerakanKamera">Gerakan Kamera</label>
+                <select id="gerakanKamera">
+                    <option value="tracking shot">Tracking Shot (Gerakan mengikuti objek)</option>
+                    <option value="dolly shot">Dolly Shot (Gerakan maju/mundur)</option>
+                    <option value="crane shot">Crane Shot (Gerakan vertikal)</option>
+                    <option value="handheld shot">Handheld Shot (Genggaman tangan)</option>
+                    <option value="static shot">Static Shot (Diam)</option>
+                    <option value="pan">Pan (Geser horizontal)</option>
+                    <option value="tilt">Tilt (Geser vertikal)</option>
+                    <option value="zoom in">Zoom In (Perbesar)</option>
+                    <option value="zoom out">Zoom Out (Perkecil)</option>
+                    <option value="3d rotation">3D Rotation (Rotasi 3D)</option>
+                    <option value="arc">Arc (Gerakan melingkar)</option>
+                    <option value="swoop">Swoop (Menukik)</option>
+                    <option value="fly-through">Fly-through (Terbang melintasi)</option>
+                    <option value="orbit">Orbit (Mengorbit)</option>
+                    <option value="telephoto">Telephoto (Lensa tele)</option>
+                    <option value="macro">Macro (Makro)</option>
+                    <option value="first-person">First-person (Sudut pandang orang pertama)</option>
+                    <option value="top-down">Top-down (Dari atas)</option>
+                    <option value="low-angle">Low-angle (Sudut rendah)</option>
+                    <option value="high-angle">High-angle (Sudut tinggi)</option>
+                    <option value="dutch-angle">Dutch-angle (Sudut miring)</option>
+                </select>
+
+                <label for="suasanaKeseluruhan">8. Suasana Keseluruhan</label>
+                <input type="text" id="suasanaKeseluruhan" placeholder="Contoh: Suasana sibuk, ramai, dengan kesan suasana sore yang hidup dan dinamis.">
+
+                <label for="suaraLingkungan">9. Suara Lingkungan/Ambience</label>
+                <input type="text" id="suaraLingkungan" placeholder="Contoh: SOUND: suara live musik lagu pop...">
+
+                <label for="dialogKarakter">10. Dialog Karakter</label>
+                <input type="text" id="dialogKarakter" placeholder="Contoh: DIALOG dalam Bahasa Indonesia: Karakter berkata: aku suka banget kulineran disini...">
+
+                <label for="negativePrompt">11. Negative Prompt</label>
+                <textarea id="negativePrompt" rows="3" placeholder="Contoh: Hindari: teks di layar, subtitle, tulisan di video, font, logo..."></textarea>
+            </div>
+        </div>
+        <button id="generateBtn">Generate Prompt</button>
+
+        <div class="prompt-output">
+            <div class="output-column">
+                <h2>Prompt (Bahasa Indonesia)</h2>
+                <textarea id="outputIndonesia" rows="20"></textarea>
+            </div>
+            <div class="output-column">
+                <h2>Prompt (Bahasa Inggris - Final)</h2>
+                <textarea id="outputInggris" rows="20" readonly></textarea>
+            </div>
+        </div>
+
+        <div class="style-changer">
+            <input type="text" id="styleInput" placeholder="Ketik 'ganti style: [warna1], [warna2], [warna3]' atau 'ganti judul: [judul baru]'">
+            <button id="changeStyleBtn">Ubah</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
